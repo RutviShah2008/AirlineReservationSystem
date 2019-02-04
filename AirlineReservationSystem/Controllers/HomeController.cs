@@ -13,14 +13,14 @@ namespace AirlineReservationSystem.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Book()
         {
             ViewBag.Message = "Your application description page.";
 
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Plan()
         {
             ViewBag.Message = "Your contact page.";
 
