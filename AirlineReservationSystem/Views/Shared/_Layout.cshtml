@@ -9,12 +9,8 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:dimgray">
-        <center>
-            <div class="alert-danger" role="alert" style="padding:0px;">
-                Travel Weather!! Alert
-            </div>
-        </center>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: dimgray;">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -27,12 +23,17 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Book", "Book", "Home")</li>
-                    <li>@Html.ActionLink("Plan", "Plan", "Home")</li>
+                    <li>@Html.ActionLink("Book", "Index", "Jets")</li>
+                    <li>@Html.ActionLink("Plan", "Index", "Flights")</li>
+                    <li>@Html.ActionLink("View", "Index", "Tickets")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
+    </div>
+    <div class="alert alert-danger container text-capitalize text-center" role="alert">
+        <i class="glyphicon glyphicon-exclamation-sign"></i>
+        <strong>Weather: </strong> <a href="https://www.accuweather.com/en/world-weather" class="alert-link">Travel Weather!! Alert</a>
     </div>
     <div class="container body-content">
         @RenderBody()

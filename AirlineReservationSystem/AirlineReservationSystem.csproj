@@ -177,13 +177,17 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JetsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PassengersController.cs" />
+    <Compile Include="Controllers\TicketsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DbAirline.cs" />
     <Compile Include="Models\Flight.cs" />
+    <Compile Include="Controllers\FlightsController.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Jet.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -249,8 +253,26 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Book.cshtml" />
-    <Content Include="Views\Home\Plan.cshtml" />
+    <Content Include="Views\Flights\Create.cshtml" />
+    <Content Include="Views\Flights\Delete.cshtml" />
+    <Content Include="Views\Flights\Details.cshtml" />
+    <Content Include="Views\Flights\Edit.cshtml" />
+    <Content Include="Views\Flights\Index.cshtml" />
+    <Content Include="Views\Jets\Create.cshtml" />
+    <Content Include="Views\Jets\Delete.cshtml" />
+    <Content Include="Views\Jets\Details.cshtml" />
+    <Content Include="Views\Jets\Edit.cshtml" />
+    <Content Include="Views\Jets\Index.cshtml" />
+    <Content Include="Views\Passengers\Create.cshtml" />
+    <Content Include="Views\Passengers\Delete.cshtml" />
+    <Content Include="Views\Passengers\Details.cshtml" />
+    <Content Include="Views\Passengers\Edit.cshtml" />
+    <Content Include="Views\Passengers\Index.cshtml" />
+    <Content Include="Views\Tickets\Create.cshtml" />
+    <Content Include="Views\Tickets\Delete.cshtml" />
+    <Content Include="Views\Tickets\Details.cshtml" />
+    <Content Include="Views\Tickets\Edit.cshtml" />
+    <Content Include="Views\Tickets\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

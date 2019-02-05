@@ -1,0 +1,35 @@
+﻿@model AirlineReservationSystem.Models.Jet
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Jet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.JetName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JetName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JetType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JetType)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.JetID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

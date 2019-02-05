@@ -1,51 +1,78 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
+<div class="jumbotron">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
 
     <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-        <div class="item active">
-            <img class="d-block w-100" src="~/Content/airplane.jpg" alt="Los Angeles" style="width:100%;">
-            <div class="carousel-caption">
-                <h1>AirlineReservationSystem</h1>
-                <p class="lead">Chepest Online AirlineReservationSystem</p>
-                <p><button class="btn-danger">@Html.ActionLink("BookNow", "Book", "Home")</button></p>
+        <div class="carousel-inner">
+            <div class="item active">
+                <img class="d-block w-100" src="~/Content/airplane.jpg" alt="Airline" style="width:100%; opacity:0.79;">
+                <div class="carousel-caption">
+                    <h1>AirlineReservationSystem</h1>
+                    <p class="lead">Chepest AirlineReservation System</p>
+                    <p><button class="btn-danger">@Html.ActionLink("BookNow", "Book", "Home")</button></p>
+                </div>
+            </div>
+
+            <div class="item">
+                <img class="d-block w-100" src="~/Content/chicago1.png" alt="Chicago" style="width:100%;opacity:0.79;">
+                <div class="carousel-caption">
+                    <h3>30%Off on Chicago Visit</h3>
+                    <p>Enjoy Your Trip!!</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <img class="d-block w-100" src="~/Content/dubai.jpg" alt="Dubai" style="width:100%;opacity:0.79;">
+                <div class="carousel-caption">
+                    <h3>20% Off on Dubai visit</h3>
+                    <p>Explore Trip</p>
+                </div>
             </div>
         </div>
 
-        <div class="item">
-            <img class="d-block w-100" src="~/Content/chicago1.png" alt="Chicago" style="width:100%;">
-            <div class="carousel-caption">
-                <h3>30%Off on Chicago Visit</h3>
-                <p>Enjoy Your Trip!!</p>
-            </div>
-        </div>
-
-        <div class="item">
-            <img class="d-block w-100" src="~/Content/dubai.jpg" alt="New York" style="width:100%;">
-            <div class="carousel-caption">
-                <h3>20% Off on Dubai visit</h3>
-                <p>Explore Trip</p>
-            </div>
-        </div>
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-        <span class="sr-only">Next</span>
-    </a>
+ </div>
+</hr>
+<h2><u>Offers</u></h2>
+<div class="row">
+    <div class="col-md-4">
+        <h4><i>Enjoy Mexico and the Caribbean for less</i></h4>
+        <p>
+            Save 15% on base fares or save $150 per booking with Air Canada Vacations® 
+            when you travel to Mexico or the Caribbean. 
+            <pre>Book by Feb. 6, 2019.</pre>
+        </p>
+        <p><a class="btn btn-default" href="">Book Now &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h4><i>California</i></h4>
+        <p>
+            Travel to the tropics in style with our new comfort fare and enjoy access to
+            a Preferred Seat, a complimentary alcoholic beverage, and more.
+            <pre>Travel until June 15, 2019.</pre>
+        </p>
+        <p><a class="btn btn-default" href="">Book Now &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h4>Phoenix Sale</h4>
+        <p>For a limited-time, save on your California getaway. <pre>Book by February 5, 2019.</pre></p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>
 </div>
-

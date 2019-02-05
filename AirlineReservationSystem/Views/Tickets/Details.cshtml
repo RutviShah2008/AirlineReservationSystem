@@ -1,0 +1,43 @@
+﻿@model AirlineReservationSystem.Models.Ticket
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ticket</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Flight.FlightSource)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Flight.FlightSource)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Passenger.PassengerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Passenger.PassengerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TicketType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TicketType)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TicketID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
