@@ -10,7 +10,7 @@
 
 </head>
 <body>
-
+    @*Added background color to navbar*@
     <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: dimgray;">
         <div class="container">
             <div class="navbar-header">
@@ -22,6 +22,7 @@
                 @Html.ActionLink("AirReservation", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
+                @*added new navigation panel*@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Book", "Index", "Jets")</li>
@@ -33,6 +34,7 @@
             </div>
         </div>
     </div>
+    @*Alert for weather added to check weather before planning trip*@
     <div class="alert alert-danger container text-capitalize text-center" role="alert">
         <i class="glyphicon glyphicon-exclamation-sign"></i>
         <strong>Weather: </strong> <a href="https://www.accuweather.com/en/world-weather" class="alert-link">Travel Weather!! Alert</a>
@@ -40,9 +42,10 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
+        @*Footer which will display at the center of page*@
         <footer>
             <div class="footer-copyright text-center py-3">
-                © 2019 Copyright: AirlineResrvationSystem
+                © 2019 Copyright: COMP2084 : AirlineResrvationSystem
                 <a href="https://github.com/RutviShah2008/"> RutviShah-200390373</a>
             </div>
         </footer>

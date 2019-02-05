@@ -1,6 +1,8 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+
+@*Added carousel to add images on index page wich will update regular changes into any offer*@
 <div class="jumbotron">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
@@ -13,6 +15,7 @@
     <!-- Wrapper for slides -->
         <div class="carousel-inner">
             <div class="item active">
+                <!--Added Image for carousel here default folde Content -->
                 <img class="d-block w-100" src="~/Content/airplane.jpg" alt="Airline" style="width:100%; opacity:0.79;">
                 <div class="carousel-caption">
                     <h1>AirlineReservationSystem</h1>
@@ -22,6 +25,7 @@
             </div>
 
             <div class="item">
+                <!--Added Image for carousel here default folde Content -->
                 <img class="d-block w-100" src="~/Content/chicago1.png" alt="Chicago" style="width:100%;opacity:0.79;">
                 <div class="carousel-caption">
                     <h3>30%Off on Chicago Visit</h3>
@@ -30,6 +34,7 @@
             </div>
 
             <div class="item">
+                <!--Added Image for carousel here default folde Content -->
                 <img class="d-block w-100" src="~/Content/dubai.jpg" alt="Dubai" style="width:100%;opacity:0.79;">
                 <div class="carousel-caption">
                     <h3>20% Off on Dubai visit</h3>
@@ -51,6 +56,7 @@
  </div>
 </hr>
 <h2><u>Offers</u></h2>
+<!--Regular offers will be displayed -->
 <div class="row">
     <div class="col-md-4">
         <h4><i>Enjoy Mexico and the Caribbean for less</i></h4>
