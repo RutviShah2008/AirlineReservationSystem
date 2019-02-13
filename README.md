@@ -1,7 +1,7 @@
 ﻿<h1>COMP-2084-Assignment1</h1>
 
 <div>
-	<h2><i>AirlineReservarion System</i></h2>
+	<h2><i>AirlineReservation System</i></h2>
 	</hr>
 	<p> This is the chepest online Air resrvation system</p>
 	<ul> <u><h3>Work</h3></u>

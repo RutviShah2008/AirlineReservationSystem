@@ -14,6 +14,7 @@ namespace AirlineReservationSystem.Models
             Tickets = new HashSet<Ticket>();
         }
 
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PassengerID { get; set; }
 
         [Column(TypeName = "text")]

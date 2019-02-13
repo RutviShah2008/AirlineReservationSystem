@@ -14,7 +14,7 @@ namespace AirlineReservationSystem.Models
             Flights = new HashSet<Flight>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int JetID { get; set; }
 
         [Column(TypeName = "text")]

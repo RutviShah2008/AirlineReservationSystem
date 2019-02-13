@@ -13,7 +13,7 @@ namespace AirlineReservationSystem.Models
         {
             Tickets = new HashSet<Ticket>();
         }
-
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int FlightID { get; set; }
 
         [Column(TypeName = "date")]

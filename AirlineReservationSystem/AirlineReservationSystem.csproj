@@ -257,26 +257,29 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Flights\Create.cshtml" />
+    <Content Include="Views\Flights\CreateOld.cshtml" />
     <Content Include="Views\Flights\Delete.cshtml" />
     <Content Include="Views\Flights\Details.cshtml" />
     <Content Include="Views\Flights\Edit.cshtml" />
     <Content Include="Views\Flights\Index.cshtml" />
-    <Content Include="Views\Jets\Create.cshtml" />
     <Content Include="Views\Jets\Delete.cshtml" />
     <Content Include="Views\Jets\Details.cshtml" />
     <Content Include="Views\Jets\Edit.cshtml" />
     <Content Include="Views\Jets\Index.cshtml" />
-    <Content Include="Views\Passengers\Create.cshtml" />
+    <Content Include="Views\Passengers\CreateOld.cshtml" />
     <Content Include="Views\Passengers\Delete.cshtml" />
     <Content Include="Views\Passengers\Details.cshtml" />
     <Content Include="Views\Passengers\Edit.cshtml" />
     <Content Include="Views\Passengers\Index.cshtml" />
-    <Content Include="Views\Tickets\Create.cshtml" />
+    <Content Include="Views\Tickets\CreateOld.cshtml" />
     <Content Include="Views\Tickets\Delete.cshtml" />
     <Content Include="Views\Tickets\Details.cshtml" />
     <Content Include="Views\Tickets\Edit.cshtml" />
     <Content Include="Views\Tickets\Index.cshtml" />
+    <Content Include="Views\Jets\Create.cshtml" />
+    <Content Include="Views\Flights\Create.cshtml" />
+    <Content Include="Views\Passengers\Create.cshtml" />
+    <Content Include="Views\Tickets\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

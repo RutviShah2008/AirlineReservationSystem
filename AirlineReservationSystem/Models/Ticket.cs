@@ -8,7 +8,7 @@ namespace AirlineReservationSystem.Models
 
     public partial class Ticket
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int TicketID { get; set; }
 
         [Column(TypeName = "text")]
