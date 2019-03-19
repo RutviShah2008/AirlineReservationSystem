@@ -24,10 +24,14 @@
             <div class="navbar-collapse collapse">
                 @*added new navigation panel*@
                 <ul class="nav navbar-nav">
-                    
-                    <li>@Html.ActionLink("Book", "Index", "Jets")</li>
+
+                    <li>@Html.ActionLink("Jets", "Index", "Jets")</li>
                     <li>@Html.ActionLink("PlanTrip", "Index", "Flights")</li>
-                    <li>@Html.ActionLink("View", "Index", "Tickets")</li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("View", "Index", "Tickets")</li>
+                    }
+
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
