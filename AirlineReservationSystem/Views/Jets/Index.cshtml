@@ -35,13 +35,15 @@
         </td>
         @if (User.IsInRole("Administrator"))
         {
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.JetID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.JetID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.JetID })
-        </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.JetID }) |
+                |
+                @Html.ActionLink("Delete", "Delete", new { id = item.JetID })|
+            </td>
         }
-        
+        @Html.ActionLink("Details", "Details", new { id = item.JetID })
+
+
     </tr>
     }
 
