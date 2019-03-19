@@ -272,7 +272,6 @@
     <Content Include="Views\Passengers\Details.cshtml" />
     <Content Include="Views\Passengers\Edit.cshtml" />
     <Content Include="Views\Passengers\Index.cshtml" />
-    <Content Include="Views\Tickets\CreateOld.cshtml" />
     <Content Include="Views\Tickets\Delete.cshtml" />
     <Content Include="Views\Tickets\Details.cshtml" />
     <Content Include="Views\Tickets\Edit.cshtml" />

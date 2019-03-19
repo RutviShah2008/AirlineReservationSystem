@@ -6,10 +6,12 @@
 }
 
 <h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+@if (User.IsInRole("Administrator"))
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
 <table class="table">
     <tr>
         <th>
@@ -21,20 +23,21 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.PassengerName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PassengerEmail)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PassengerID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PassengerID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PassengerID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassengerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassengerEmail)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.PassengerID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.PassengerID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.PassengerID })
+            </td>
+        </tr>
+    }
 
 </table>
