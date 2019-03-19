@@ -10,12 +10,13 @@ using AirlineReservationSystem.Models;
 
 namespace AirlineReservationSystem.Controllers
 {
-    [Authorize(Roles = "User")]
+    [Authorize]
     public class TicketsController : Controller
     {
         private DbAirline db = new DbAirline();
 
         // GET: Tickets
+        [AllowAnonymous]
         public ActionResult Index()
         {
             var tickets = db.Tickets.Include(t => t.Flight).Include(t => t.Passenger);
@@ -23,6 +24,7 @@ namespace AirlineReservationSystem.Controllers
         }
 
         // GET: Tickets/Details/5
+        [AllowAnonymous]
         public ActionResult Details(int? id)
         {
             if (id == null)

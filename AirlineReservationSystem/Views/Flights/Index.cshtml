@@ -35,36 +35,37 @@
 
     @foreach (var item in Model)
     {
-        <tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Jet.JetName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FlightDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FlightSource)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FlightDestination)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FlightTime)
+        </td>
+        @if (Request.IsAuthenticated)
+        {
             <td>
-                @Html.DisplayFor(modelItem => item.Jet.JetName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FlightDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FlightSource)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FlightDestination)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FlightTime)
-            </td>
-            <td>
-                @if (User.IsInRole("User"))
-                {
 
-                    @Html.ActionLink("Edit", "Edit", new { id = item.FlightID })
-                }
+
+                @Html.ActionLink("Edit", "Edit", new { id = item.FlightID })
+
                 |
                 @Html.ActionLink("Details", "Details", new { id = item.FlightID }) |
-                @if (User.IsInRole("Uset"))
-                {
 
-                    @Html.ActionLink("Delete", "Delete", new { id = item.FlightID })
-                }
-                </td>
+
+                @Html.ActionLink("Delete", "Delete", new { id = item.FlightID })
+
+            </td>
+        }
         </tr>
     }
 

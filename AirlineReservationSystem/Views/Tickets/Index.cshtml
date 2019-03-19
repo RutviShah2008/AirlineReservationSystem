@@ -28,21 +28,24 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Flight.FlightSource)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Passenger.PassengerName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TicketType)
-            </td>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Flight.FlightSource)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Passenger.PassengerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TicketType)
+        </td>
+        @if (Request.IsAuthenticated)
+        {
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.TicketID }) |
                 @Html.ActionLink("Details", "Details", new { id = item.TicketID }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.TicketID })
             </td>
+        }
         </tr>
     }
 

@@ -33,7 +33,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.JetType)
         </td>
-        @if (User.IsInRole("Administrator"))
+        @if (Request.IsAuthenticated)
         {
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.JetID }) |
@@ -41,7 +41,7 @@
                 @Html.ActionLink("Delete", "Delete", new { id = item.JetID })
             </td>
         }
-        
+
     </tr>
     }
 

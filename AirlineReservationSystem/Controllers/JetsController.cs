@@ -10,18 +10,20 @@ using AirlineReservationSystem.Models;
 
 namespace AirlineReservationSystem.Controllers
 {
-    [Authorize(Roles = "Administrator")]
+    [Authorize]
 
     public class JetsController : Controller
     {
         private DbAirline db = new DbAirline();
 
+        [AllowAnonymous]
         // GET: Jets
         public ActionResult Index()
         {
             return View(db.Jets.ToList());
         }
 
+        [AllowAnonymous]
         // GET: Jets/Details/5
         public ActionResult Details(int? id)
         {

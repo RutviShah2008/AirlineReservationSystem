@@ -10,7 +10,7 @@ using AirlineReservationSystem.Models;
 
 namespace AirlineReservationSystem.Controllers
 {
-    [Authorize(Roles = "Administrator")]
+    [Authorize]
 
     public class PassengersController : Controller
     {
