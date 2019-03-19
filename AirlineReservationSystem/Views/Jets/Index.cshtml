@@ -36,17 +36,14 @@
         @if (Request.IsAuthenticated)
         {
         <td>
-            @if (User.IsInRole("User"))
-            {
-                @Html.ActionLink("Edit", "Edit", new { id = item.JetID })
-            }
+              @Html.ActionLink("Edit", "Edit", new { id = item.JetID })
+           
 
             @Html.ActionLink("Details", "Details", new { id = item.JetID }) |
-            @if (User.IsInRole("User"))
-            {
+           
 
                 @Html.ActionLink("Delete", "Delete", new { id = item.JetID })
-            }
+         
             </td>
         }
 
