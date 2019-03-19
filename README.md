@@ -29,4 +29,8 @@
 	<li> Added Authorozation and Authentication for the Index View - Anonymous users can view the list of data but cannot see the Create, Edit, or Delete links</li>
 	<li> Enabled Social Authentication Microsoft, Google, Twitter, Facebook</li>
 	</ul>
+	<ul> <u><h3>Challenges</h3></u>
+		<li>Generating ClientId and Secret for Google Plus</li>
+		<li>Connecting to server</li>		
+	</ul>
 </div>
