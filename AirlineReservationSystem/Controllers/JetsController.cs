@@ -10,6 +10,8 @@ using AirlineReservationSystem.Models;
 
 namespace AirlineReservationSystem.Controllers
 {
+    [Authorize(Roles = "Administrator")]
+
     public class JetsController : Controller
     {
         private DbAirline db = new DbAirline();

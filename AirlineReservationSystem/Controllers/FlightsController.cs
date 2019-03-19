@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace AirlineReservationSystem.Models
 {
+    [Authorize(Roles = "User")]
 
     public class FlightsController : Controller
     {
