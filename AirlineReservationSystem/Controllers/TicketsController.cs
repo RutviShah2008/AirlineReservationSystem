@@ -10,7 +10,7 @@ using AirlineReservationSystem.Models;
 
 namespace AirlineReservationSystem.Controllers
 {
-    [Authorize]
+    [Authorize ]
     public class TicketsController : Controller
     {
         private DbAirline db = new DbAirline();
