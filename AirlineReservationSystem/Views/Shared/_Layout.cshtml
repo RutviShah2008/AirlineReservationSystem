@@ -26,7 +26,7 @@
                 <ul class="nav navbar-nav">
 
                     <li>@Html.ActionLink("Jets", "Index", "Jets")</li>
-                    <li>@Html.ActionLink("PlanTrip", "Index", "Flights")</li>
+                    <li>@Html.ActionLink("PlanTrip", "Create", "Flights")</li>
                     @if (Request.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("View", "Index", "Tickets")</li>
