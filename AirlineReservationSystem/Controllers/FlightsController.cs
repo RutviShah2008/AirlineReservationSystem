@@ -9,10 +9,12 @@ using System.Web.Mvc;
 
 namespace AirlineReservationSystem.Models
 {
+
     public class FlightsController : Controller
     {
         private DbAirline db = new DbAirline();
 
+        [AllowAnonymous]
         // GET: Flights
         public ActionResult Index()
         {
@@ -21,6 +23,7 @@ namespace AirlineReservationSystem.Models
         }
 
         // GET: Flights/Details/5
+        [AllowAnonymous]
         public ActionResult Details(int? id)
         {
             if (id == null)

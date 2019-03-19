@@ -7,10 +7,10 @@
 
 <h2>Flights</h2>
 
-@if (User.IsInRole("Administrator"))
+@if (User.IsInRole("User"))
 {
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Book Now", "Create")
     </p>
 }
 <table class="table">
@@ -52,14 +52,14 @@
                 @Html.DisplayFor(modelItem => item.FlightTime)
             </td>
             <td>
-                @if (User.IsInRole("Administrator"))
+                @if (User.IsInRole("User"))
                 {
 
                     @Html.ActionLink("Edit", "Edit", new { id = item.FlightID })
                 }
                 |
                 @Html.ActionLink("Details", "Details", new { id = item.FlightID }) |
-                @if (User.IsInRole("Administrator"))
+                @if (User.IsInRole("Uset"))
                 {
 
                     @Html.ActionLink("Delete", "Delete", new { id = item.FlightID })

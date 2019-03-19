@@ -47,9 +47,11 @@ namespace AirlineReservationSystem
             app.UseTwoFactorRememberBrowserCookie(DefaultAuthenticationTypes.TwoFactorRememberBrowserCookie);
 
             // Uncomment the following lines to enable logging in with third party login providers
-            //app.UseMicrosoftAccountAuthentication(
-            //    clientId: "",
-            //    clientSecret: "");
+            app.UseMicrosoftAccountAuthentication(
+                clientId: ConfigurationManager.AppSettings["MicrosoftClietID"],
+                clientSecret: ConfigurationManager.AppSettings["MicrosoftClientSecret"]);
+            //2b6ee77c-26a0-4ca9-9461-9882ec2f5d9b
+            //xzqMDCT23eieyYHC985]?)|
 
             app.UseTwitterAuthentication(
                consumerKey: ConfigurationManager.AppSettings["TwitterConsumerKey"],
