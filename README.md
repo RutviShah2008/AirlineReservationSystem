@@ -31,6 +31,6 @@
 	</ul>
 	<ul> <u><h3>Challenges</h3></u>
 		<li>Generating ClientId and Secret for Google Plus</li>
-		<li>Connecting to server</li>		
+		<li>Connecting to server</li>  		
 	</ul>
 </div>
