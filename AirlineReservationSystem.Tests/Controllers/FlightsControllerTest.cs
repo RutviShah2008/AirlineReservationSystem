@@ -192,7 +192,67 @@ namespace AirlineReservationSystem.Tests.Controllers
 
             //Assert
             Assert.AreEqual(details, viewresult);
-        } 
-        
+        }
+        [TestMethod]
+        public void FlightsCreateLoad()
+        {
+            //Act
+            var result = controller.Create() as ViewResult;
+
+            //Assert
+            Assert.AreEqual("Create", result.ViewName);
+
+        }
+        [TestMethod]
+        public void FlightsCreateLoadType()
+        {
+            //Act
+            var result = controller.Create();
+
+            //Assert
+            Assert.IsInstanceOfType(result, typeof(ViewResult));
+
+        }
+        [TestMethod]
+        public void FlightsCreateViewBag()
+        {
+            //Act
+            var result = controller.Create() as ViewResult;
+
+            //Assert
+            Assert.AreEqual("Book Your Flights", result.ViewBag.Message);
+        }
+        [TestMethod]
+        public void FlightsCreateNullResult()
+        {
+            //Act
+            var result = controller.Create() as ViewResult;
+
+            //Assert
+            Assert.IsNotNull( result);
+        }
+        [TestMethod]
+        public void FlightsCreateActionResult()
+        {
+            //Arrange 
+            Flight flights = new Flight { FlightID = 1001, FlightDestination = "Fake", FlightSource = "Fake", FlightTime = "fake" };
+            //Act
+            var result = controller.Create(flights) as RedirectToRouteResult;
+
+            //Assert
+            Assert.AreEqual("Index", result.RouteValues["action"]);
+        }
+        [TestMethod]
+        public void FlightsCreateActionResultNotNull()
+        {
+            //Arrange 
+            Flight flights = new Flight { FlightID = 1001, FlightDestination = "Fake", FlightSource = "Fake", FlightTime = "fake" };
+            //Act
+            var result = controller.Create(flights) as RedirectToRouteResult;
+
+            //Assert
+            Assert.IsNotNull(result);
+        }
+
     }
 }

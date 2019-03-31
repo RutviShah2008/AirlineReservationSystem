@@ -53,8 +53,9 @@ namespace AirlineReservationSystem.Models
         // GET: Flights/Create
         public ActionResult Create()
         {
+            ViewBag.Message = "Book Your Flights";
             //ViewBag.FlightJetID = new SelectList(db.Jets, "JetID", "JetName");
-            return View();
+            return View("Create");
         }
 
         // POST: Flights/Create
