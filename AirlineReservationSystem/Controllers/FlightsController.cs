@@ -29,7 +29,7 @@ namespace AirlineReservationSystem.Models
         {
             ViewBag.Message = "Flights For Reservation";
             var flights = db.Flights.Include(f => f.Jet);
-            return View(flights.ToList());
+            return View("Index",flights.ToList());
         }
 
         // GET: Flights/Details/5
@@ -46,7 +46,8 @@ namespace AirlineReservationSystem.Models
             {
                 return HttpNotFound();
             }
-            return View(flight);
+            
+            return View("Details",flight);
         }
 
         // GET: Flights/Create
@@ -71,7 +72,7 @@ namespace AirlineReservationSystem.Models
             }
 
             //ViewBag.FlightJetID = new SelectList(db.Jets, "JetID", "JetName", flight.FlightJetID);
-            return View(flight);
+            return View("Create",flight);
         }
 
         // GET: Flights/Edit/5
@@ -88,7 +89,7 @@ namespace AirlineReservationSystem.Models
                 return HttpNotFound();
             }
             //ViewBag.FlightJetID = new SelectList(db.Jets, "JetID", "JetName", flight.FlightJetID);
-            return View(flight);
+            return View("Edit",flight);
         }
 
         // POST: Flights/Edit/5
@@ -105,7 +106,7 @@ namespace AirlineReservationSystem.Models
                 return RedirectToAction("Index");
             }
             //ViewBag.FlightJetID = new SelectList(db.Jets, "JetID", "JetName", flight.FlightJetID);
-            return View(flight);
+            return View("Edit",flight);
         }
 
         // GET: Flights/Delete/5
@@ -120,7 +121,7 @@ namespace AirlineReservationSystem.Models
             {
                 return HttpNotFound();
             }
-            return View(flight);
+            return View("Delete",flight);
         }
 
         // POST: Flights/Delete/5

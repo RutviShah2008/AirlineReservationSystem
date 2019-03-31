@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
@@ -80,7 +80,62 @@ namespace AirlineReservationSystem.Tests.Controllers
 
             //Assert
             CollectionAssert.AreEqual(flights.ToList(), results);
+        }
+        [TestMethod]
+        public void DetailsLoad()
+        {
+            //Arrange
+            //Act
+            ViewResult viewresult = controller.Details(500) as ViewResult;
+
+            //Assert
+            Assert.IsNotNull(viewresult);
 
         }
+        [TestMethod]
+        public void DetailsLoadfViewName()
+        {
+            //Arrange
+            //Act
+            ViewResult viewresult = controller.Details(501) as ViewResult;
+
+            //Assert
+            Assert.AreEqual("Details", viewresult.ViewName);
+        }
+        [TestMethod]
+        public void DetailsLoadNullID()
+        {
+            //Arrange
+            //Act
+            HttpStatusCodeResult viewresult = controller.Details(null) as HttpStatusCodeResult;
+
+            //Assert
+            Assert.AreEqual(400, viewresult.StatusCode);
+        }
+        [TestMethod]
+        public void DetailsHttpNotFound()
+        {
+            //Arrange
+
+            //Act
+            HttpNotFoundResult viewresult = controller.Details(501) as HttpNotFoundResult;
+
+            //Assert
+            Assert.AreEqual(404, viewresult.StatusCode);
+            
+        }
+
+        [TestMethod]
+        public void DetailsList()
+        {
+            //Arrange
+
+            //Act
+            var viewresult = ((ViewResult)controller.Details(501)).Model;
+            var details = flights.SingleOrDefault(f => f.FlightID == 501);
+
+            //Assert
+            Assert.AreEqual(details, viewresult);
+        }        
     }
 }
