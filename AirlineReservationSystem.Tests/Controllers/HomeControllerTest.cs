@@ -30,7 +30,7 @@ namespace AirlineReservationSystem.Tests.Controllers
             ViewResult result = controller.Book() as ViewResult;
 
             // Assert
-            Assert.AreEqual("Your application description page.", result.ViewBag.Message);
+            Assert.AreEqual("Airline Reservation System", result.ViewBag.Message);
         }
 
         [TestMethod]

@@ -8,10 +8,20 @@ using System.Web.Mvc;
 namespace AirlineReservationSystem.Models
 {
     [Authorize]
-
     public class FlightsController : Controller
     {
-        private DbAirline db = new DbAirline();
+        //private DbAirline db = new DbAirline();
+        IMockFlights db;
+
+        public FlightsController()
+        {
+            this.db = new IDataFlights();
+        }
+
+        public FlightsController(IMockFlights mockDb)
+        {
+            this.db = mockDb;
+        }
 
         [AllowAnonymous]
         // GET: Flights
@@ -29,7 +39,8 @@ namespace AirlineReservationSystem.Models
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Flight flight = db.Flights.Find(id);
+            //Flight flight = db.Flights.Find(id);
+            Flight flight = db.Flights.SingleOrDefault(f => f.FlightID == id);
             if (flight == null)
             {
                 return HttpNotFound();
@@ -40,7 +51,7 @@ namespace AirlineReservationSystem.Models
         // GET: Flights/Create
         public ActionResult Create()
         {
-            ViewBag.FlightJetID = new SelectList(db.Jets, "JetID", "JetName");
+            //ViewBag.FlightJetID = new SelectList(db.Jets, "JetID", "JetName");
             return View();
         }
 
@@ -53,12 +64,12 @@ namespace AirlineReservationSystem.Models
         {
             if (ModelState.IsValid)
             {
-                db.Flights.Add(flight);
-                db.SaveChanges();
+                //db.Flights.Add(flight);
+                //db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.FlightJetID = new SelectList(db.Jets, "JetID", "JetName", flight.FlightJetID);
+            //ViewBag.FlightJetID = new SelectList(db.Jets, "JetID", "JetName", flight.FlightJetID);
             return View(flight);
         }
 
@@ -69,12 +80,13 @@ namespace AirlineReservationSystem.Models
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Flight flight = db.Flights.Find(id);
+            //Flight flight = db.Flights.Find(id);
+            Flight flight = db.Flights.SingleOrDefault(f => f.FlightID == id);
             if (flight == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.FlightJetID = new SelectList(db.Jets, "JetID", "JetName", flight.FlightJetID);
+            //ViewBag.FlightJetID = new SelectList(db.Jets, "JetID", "JetName", flight.FlightJetID);
             return View(flight);
         }
 
@@ -87,11 +99,11 @@ namespace AirlineReservationSystem.Models
         {
             if (ModelState.IsValid)
             {
-                db.Entry(flight).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(flight).State = EntityState.Modified;
+                //db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.FlightJetID = new SelectList(db.Jets, "JetID", "JetName", flight.FlightJetID);
+            //ViewBag.FlightJetID = new SelectList(db.Jets, "JetID", "JetName", flight.FlightJetID);
             return View(flight);
         }
 
@@ -102,7 +114,7 @@ namespace AirlineReservationSystem.Models
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Flight flight = db.Flights.Find(id);
+            Flight flight = db.Flights.SingleOrDefault(f => f.FlightID == id);
             if (flight == null)
             {
                 return HttpNotFound();
@@ -115,9 +127,9 @@ namespace AirlineReservationSystem.Models
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Flight flight = db.Flights.Find(id);
-            db.Flights.Remove(flight);
-            db.SaveChanges();
+            Flight flight = db.Flights.SingleOrDefault(f => f.FlightID == id);
+            //db.Flights.Remove(flight);
+            //db.SaveChanges();
             return RedirectToAction("Index");
         }
 

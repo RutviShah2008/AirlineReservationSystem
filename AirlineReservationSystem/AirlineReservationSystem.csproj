@@ -200,7 +200,9 @@
     <Compile Include="Models\DbAirline.cs" />
     <Compile Include="Models\Flight.cs" />
     <Compile Include="Controllers\FlightsController.cs" />
+    <Compile Include="Models\IDataFlights.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\IMockFlights.cs" />
     <Compile Include="Models\Jet.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Passenger.cs" />
