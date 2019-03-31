@@ -9,6 +9,7 @@ namespace AirlineReservationSystem.Tests.Controllers
         [TestMethod]
         public void TestMethod1()
         {
+
         }
     }
 }
