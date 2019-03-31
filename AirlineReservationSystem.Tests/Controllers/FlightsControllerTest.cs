@@ -22,9 +22,9 @@ namespace AirlineReservationSystem.Tests.Controllers
             // create some mock data
             flights = new List<Flight>
             {
-                new Flight { FlightID = 500, FlightDestination = "Fake Category One" , FlightSource="Fake Source"},
-                new Flight { FlightID = 501, FlightDestination = "Fake Category One" , FlightSource="Fake Source"},
-                new Flight { FlightID = 502, FlightDestination = "Fake Category One" , FlightSource="Fake Source"}
+                new Flight { FlightID = 5000, FlightDestination = "Fake Category One" , FlightSource="Fake Source"},
+                new Flight { FlightID = 5001, FlightDestination = "Fake Category One" , FlightSource="Fake Source"},
+                new Flight { FlightID = 5002, FlightDestination = "Fake Category One" , FlightSource="Fake Source"}
             };
 
             // set up & populate our mock object to inject into our controller
@@ -82,28 +82,28 @@ namespace AirlineReservationSystem.Tests.Controllers
             CollectionAssert.AreEqual(flights.ToList(), results);
         }
         [TestMethod]
-        public void DetailsLoad()
+        public void FlightsDetailsLoad()
         {
             //Arrange
             //Act
-            ViewResult viewresult = controller.Details(500) as ViewResult;
+            ViewResult viewresult = controller.Details(5000) as ViewResult;
 
             //Assert
             Assert.IsNotNull(viewresult);
 
         }
         [TestMethod]
-        public void DetailsLoadfViewName()
+        public void FlightsDetailsLoadfViewName()
         {
             //Arrange
             //Act
-            ViewResult viewresult = controller.Details(501) as ViewResult;
+            ViewResult viewresult = controller.Details(5001) as ViewResult;
 
             //Assert
             Assert.AreEqual("Details", viewresult.ViewName);
         }
         [TestMethod]
-        public void DetailsLoadNullID()
+        public void FlightsDetailsLoadNullID()
         {
             //Arrange
             //Act
@@ -113,12 +113,12 @@ namespace AirlineReservationSystem.Tests.Controllers
             Assert.AreEqual(400, viewresult.StatusCode);
         }
         [TestMethod]
-        public void DetailsHttpNotFound()
+        public void FlightsDetailsHttpNotFound()
         {
             //Arrange
 
             //Act
-            HttpNotFoundResult viewresult = controller.Details(501) as HttpNotFoundResult;
+            HttpNotFoundResult viewresult = controller.Details(1001) as HttpNotFoundResult;
 
             //Assert
             Assert.AreEqual(404, viewresult.StatusCode);
@@ -126,16 +126,73 @@ namespace AirlineReservationSystem.Tests.Controllers
         }
 
         [TestMethod]
-        public void DetailsList()
+        public void FlightsDetailsList()
         {
             //Arrange
 
             //Act
-            var viewresult = ((ViewResult)controller.Details(501)).Model;
-            var details = flights.SingleOrDefault(f => f.FlightID == 501);
+            var viewresult = ((ViewResult)controller.Details(5001)).Model;
+            var details = flights.SingleOrDefault(f => f.FlightID == 5001);
 
             //Assert
             Assert.AreEqual(details, viewresult);
-        }        
+        }
+        
+        [TestMethod]
+        public void FlightsDeleteLoad()
+        {
+            //Arrange
+            //Act
+            ViewResult viewresult = controller.Delete(5000) as ViewResult;
+
+            //Assert
+            Assert.IsNotNull(viewresult);
+
+        }
+        [TestMethod]
+        public void FlightsDeleteLoadViewName()
+        {
+            //Arrange
+            //Act
+            ViewResult viewresult = controller.Delete(5001) as ViewResult;
+
+            //Assert
+            Assert.AreEqual("Delete", viewresult.ViewName);
+        }
+        [TestMethod]
+        public void FlightsDeleteLoadNullID()
+        {
+            //Arrange
+            //Act
+            HttpStatusCodeResult viewresult = controller.Delete(null) as HttpStatusCodeResult;
+
+            //Assert
+            Assert.AreEqual(400, viewresult.StatusCode);
+        }
+        [TestMethod]
+        public void FlightsDeleteHttpNotFouond()
+        {
+            //Arrange
+
+            //Act
+            HttpNotFoundResult viewresult = controller.Delete(1001) as HttpNotFoundResult;
+
+            //Assert
+            Assert.AreEqual(404, viewresult.StatusCode);
+
+        }
+        [TestMethod]
+        public void FlightsDeleteLoadList()
+        {
+            //Arrange
+
+            //Act
+            var viewresult = ((ViewResult)controller.Delete(5001)).Model;
+            var details = flights.SingleOrDefault(f => f.FlightID == 5001);
+
+            //Assert
+            Assert.AreEqual(details, viewresult);
+        } 
+        
     }
 }
