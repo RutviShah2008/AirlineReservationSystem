@@ -27,6 +27,7 @@ namespace AirlineReservationSystem.Models
         // GET: Flights
         public ActionResult Index()
         {
+            ViewBag.Message = "Flights For Reservation";
             var flights = db.Flights.Include(f => f.Jet);
             return View(flights.ToList());
         }
