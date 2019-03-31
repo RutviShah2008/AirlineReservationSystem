@@ -14,7 +14,5 @@ namespace AirlineReservationSystem.Tests.Controllers
         List<Flight> flights;
         Mock<IMockFlights> mock;
 
-
-
     }
 }
