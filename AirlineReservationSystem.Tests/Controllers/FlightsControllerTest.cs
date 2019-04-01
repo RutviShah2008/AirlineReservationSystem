@@ -14,6 +14,7 @@ namespace AirlineReservationSystem.Tests.Controllers
         // moq data
         FlightsController controller;
         List<Flight> flights;
+        List<Jet> jets;
         Mock<IMockFlights> mock;
 
         [TestInitialize]
@@ -26,11 +27,20 @@ namespace AirlineReservationSystem.Tests.Controllers
                 new Flight { FlightID = 5001, FlightDestination = "Fake Category One" , FlightSource="Fake Source"},
                 new Flight { FlightID = 5002, FlightDestination = "Fake Category One" , FlightSource="Fake Source"}
             };
+            
+            // create some mock data
+            jets = new List<Jet>
+            {
+                new Jet { JetID = 2001, JetName = "Fake Category One" , JetType="Fake Source"},
+                new Jet { JetID = 2002, JetName = "Fake Category One" , JetType="Fake Source"},
+                new Jet { JetID = 2003, JetName = "Fake Category One" , JetType="Fake Source"}
+                
+            };
 
             // set up & populate our mock object to inject into our controller
             mock = new Mock<IMockFlights>();
             mock.Setup(f => f.Flights).Returns(flights.AsQueryable());
-
+            mock.Setup(j => j.Jets).Returns(jets.AsQueryable());
             // initialize the controller and inject the mock object
             controller = new FlightsController(mock.Object);
         }
@@ -253,17 +263,124 @@ namespace AirlineReservationSystem.Tests.Controllers
             //Assert
             Assert.IsNotNull(result);
         }
+
         [TestMethod]
-        public void FlightsCreate()
+        public void FlightsCreateViewBag()
         {
             //Arrange 
-            Flight flights = new Flight { FlightID = 1001, FlightDestination = "Fake", FlightSource = "Fake", FlightTime = "fake" };
+            controller.ModelState.AddModelError("Description", "error");
             //Act
-            var result = controller.Create(flights) as RedirectToRouteResult;
+            SelectList result = (controller.Create(flights[0]) as ViewResult).ViewBag.FlightJetID;
 
             //Assert
-            Assert.IsNotNull(result);
+            Assert.AreEqual(500, result.SelectedValue);
         }
+        
+        [TestMethod]
+        public void FlightsEditeLoad()
+        {
+            //Arrange
+            //Act
+            ViewResult viewresult = controller.Edit(5000) as ViewResult;
+
+            //Assert
+            Assert.IsNotNull(viewresult);
+
+        }
+        [TestMethod]
+        public void FlightsEditLoadViewName()
+        {
+            //Arrange
+            //Act
+            ViewResult viewresult = controller.Edit(5001) as ViewResult;
+
+            //Assert
+            Assert.AreEqual("Edit", viewresult.ViewName);
+        }
+        //[TestMethod]
+        //public void FlightsEditLoadNullID()
+        //{
+        //    //Arrange
+        //    //Act
+        //    HttpStatusCodeResult viewresult = controller.Edit(null) as HttpStatusCodeResult;
+
+        //    //Assert
+        //    Assert.AreEqual(400, viewresult.StatusCode);
+        //}
+        [TestMethod]
+        public void FlightsEditHttpNotFouond()
+        {
+            //Arrange
+
+            //Act
+            HttpNotFoundResult viewresult = controller.Edit(1001) as HttpNotFoundResult;
+
+            //Assert
+            Assert.AreEqual(404, viewresult.StatusCode);
+
+        }
+
+        [TestMethod]
+        public void FlightsEditViewBag()
+        {
+            //Arrange 
+            controller.ModelState.AddModelError("Description", "error");
+            //Act
+            SelectList result = (controller.Edit(flights[0]) as ViewResult).ViewBag.FlightJetID;
+
+            
+            //Assert
+            Assert.AreEqual(500, result.SelectedValue);
+        }
+
+        [TestMethod]
+        public void FlightEditPostViewLoads()
+        {
+            //act
+            RedirectToRouteResult viewresult = controller.Edit(flights[0]) as RedirectToRouteResult;
+            //arrange
+            Assert.IsNotNull(viewresult);
+        }
+
+        [TestMethod]
+        public void FlightEditPostViewName()
+        {
+            //act
+            RedirectToRouteResult viewresult = controller.Edit(flights[0]) as RedirectToRouteResult;
+            //arrange
+            Assert.AreEqual("Index", viewresult.RouteValues["action"]);
+        }
+
+       
+        [TestMethod]
+        public void FLightsEditPostInvalidModel()
+        {
+            controller.ModelState.AddModelError("Description", "Error");
+
+            //act
+            ViewResult viewresult = controller.Edit(flights[0]) as ViewResult;
+
+            //Assert
+            Assert.AreEqual("Edit", viewresult.ViewName);
+        }
+
+        [TestMethod]
+        public void FlightEditPostViewBeg()
+        {
+            controller.ModelState.AddModelError("Description", "error");
+
+            //Act
+            SelectList viewresult = (controller.Edit(flights[0]) as ViewResult).ViewBag.FlightJetID;
+
+            //Assert
+            Assert.AreEqual(5000, viewresult.SelectedValue);
+        }
+
+        
+
+
+
+
 
     }
 }
