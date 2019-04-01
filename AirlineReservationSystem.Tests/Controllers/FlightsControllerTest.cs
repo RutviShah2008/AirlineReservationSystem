@@ -23,18 +23,18 @@ namespace AirlineReservationSystem.Tests.Controllers
             // create some mock data
             flights = new List<Flight>
             {
-                new Flight { FlightID = 5000, FlightDestination = "Fake Category One" , FlightSource="Fake Source"},
-                new Flight { FlightID = 5001, FlightDestination = "Fake Category One" , FlightSource="Fake Source"},
-                new Flight { FlightID = 5002, FlightDestination = "Fake Category One" , FlightSource="Fake Source"}
+                new Flight { FlightID = 5000, FlightDestination = "Fake Category One" , FlightSource="Fake Source",FlightJetID=3001},
+                new Flight { FlightID = 5001, FlightDestination = "Fake Category One" , FlightSource="Fake Source",FlightJetID=3002},
+                new Flight { FlightID = 5002, FlightDestination = "Fake Category One" , FlightSource="Fake Source",FlightJetID=3003}
             };
-            
+
             // create some mock data
             jets = new List<Jet>
             {
                 new Jet { JetID = 2001, JetName = "Fake Category One" , JetType="Fake Source"},
                 new Jet { JetID = 2002, JetName = "Fake Category One" , JetType="Fake Source"},
                 new Jet { JetID = 2003, JetName = "Fake Category One" , JetType="Fake Source"}
-                
+
             };
 
             // set up & populate our mock object to inject into our controller
@@ -54,7 +54,7 @@ namespace AirlineReservationSystem.Tests.Controllers
 
             //Assert
             Assert.IsNotNull(viewresult);
-            
+
 
         }
         [TestMethod]
@@ -132,7 +132,7 @@ namespace AirlineReservationSystem.Tests.Controllers
 
             //Assert
             Assert.AreEqual(404, viewresult.StatusCode);
-            
+
         }
 
         [TestMethod]
@@ -147,7 +147,7 @@ namespace AirlineReservationSystem.Tests.Controllers
             //Assert
             Assert.AreEqual(details, viewresult);
         }
-        
+
         [TestMethod]
         public void FlightsDeleteLoad()
         {
@@ -203,6 +203,28 @@ namespace AirlineReservationSystem.Tests.Controllers
             //Assert
             Assert.AreEqual(details, viewresult);
         }
+
+        [TestMethod]
+        public void FlightsDeleteConfirmed()
+        {
+            //var viewresult = ((ViewResult)controller.DeleteConfirmed(5001)).Model;
+
+            var details = flights.SingleOrDefault(f => f.FlightID == 5001);
+
+            //Assert
+            Assert.IsNotNull(details);
+        }
+
+        [TestMethod]
+        public void FlightsDeleteConfirmedValidRedirect()
+        {
+            RedirectToRouteResult details = controller.DeleteConfirmed(5001) as RedirectToRouteResult;
+
+            var list = details.RouteValues.ToArray();
+            //Assert
+            Assert.AreEqual("Index",list[0].Value );
+        }
+
         [TestMethod]
         public void FlightsCreateLoad()
         {
@@ -239,7 +261,7 @@ namespace AirlineReservationSystem.Tests.Controllers
             var result = controller.Create() as ViewResult;
 
             //Assert
-            Assert.IsNotNull( result);
+            Assert.IsNotNull(result);
         }
         [TestMethod]
         public void FlightsCreateActionResult()
@@ -273,9 +295,9 @@ namespace AirlineReservationSystem.Tests.Controllers
             SelectList result = (controller.Create(flights[0]) as ViewResult).ViewBag.FlightJetID;
 
             //Assert
-            Assert.AreEqual(500, result.SelectedValue);
+            Assert.AreEqual(3001, result.SelectedValue);
         }
-        
+
         [TestMethod]
         public void FlightsEditeLoad()
         {
@@ -328,9 +350,9 @@ namespace AirlineReservationSystem.Tests.Controllers
             //Act
             SelectList result = (controller.Edit(flights[0]) as ViewResult).ViewBag.FlightJetID;
 
-            
+
             //Assert
-            Assert.AreEqual(500, result.SelectedValue);
+            Assert.AreEqual(3001, result.SelectedValue);
         }
 
         [TestMethod]
@@ -351,7 +373,7 @@ namespace AirlineReservationSystem.Tests.Controllers
             Assert.AreEqual("Index", viewresult.RouteValues["action"]);
         }
 
-       
+
         [TestMethod]
         public void FLightsEditPostInvalidModel()
         {
@@ -370,17 +392,11 @@ namespace AirlineReservationSystem.Tests.Controllers
             controller.ModelState.AddModelError("Description", "error");
 
             //Act
+            //Act
             SelectList viewresult = (controller.Edit(flights[0]) as ViewResult).ViewBag.FlightJetID;
 
             //Assert
-            Assert.AreEqual(5000, viewresult.SelectedValue);
+            Assert.AreEqual(3001, viewresult.SelectedValue);
         }
-
-        
-
-
-
-
-
     }
 }
