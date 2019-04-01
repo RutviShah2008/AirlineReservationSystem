@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
@@ -41,7 +42,9 @@ namespace AirlineReservationSystem.Tests.Controllers
             mock = new Mock<IMockFlights>();
             mock.Setup(f => f.Flights).Returns(flights.AsQueryable());
             mock.Setup(j => j.Jets).Returns(jets.AsQueryable());
+
             // initialize the controller and inject the mock object
+            controller = new FlightsController();
             controller = new FlightsController(mock.Object);
         }
 
@@ -148,82 +151,7 @@ namespace AirlineReservationSystem.Tests.Controllers
             Assert.AreEqual(details, viewresult);
         }
 
-        [TestMethod]
-        public void FlightsDeleteLoad()
-        {
-            //Arrange
-            //Act
-            ViewResult viewresult = controller.Delete(5000) as ViewResult;
-
-            //Assert
-            Assert.IsNotNull(viewresult);
-
-        }
-        [TestMethod]
-        public void FlightsDeleteLoadViewName()
-        {
-            //Arrange
-            //Act
-            ViewResult viewresult = controller.Delete(5001) as ViewResult;
-
-            //Assert
-            Assert.AreEqual("Delete", viewresult.ViewName);
-        }
-        [TestMethod]
-        public void FlightsDeleteLoadNullID()
-        {
-            //Arrange
-            //Act
-            HttpStatusCodeResult viewresult = controller.Delete(null) as HttpStatusCodeResult;
-
-            //Assert
-            Assert.AreEqual(400, viewresult.StatusCode);
-        }
-        [TestMethod]
-        public void FlightsDeleteHttpNotFouond()
-        {
-            //Arrange
-
-            //Act
-            HttpNotFoundResult viewresult = controller.Delete(1001) as HttpNotFoundResult;
-
-            //Assert
-            Assert.AreEqual(404, viewresult.StatusCode);
-
-        }
-        [TestMethod]
-        public void FlightsDeleteLoadList()
-        {
-            //Arrange
-
-            //Act
-            var viewresult = ((ViewResult)controller.Delete(5001)).Model;
-            var details = flights.SingleOrDefault(f => f.FlightID == 5001);
-
-            //Assert
-            Assert.AreEqual(details, viewresult);
-        }
-
-        [TestMethod]
-        public void FlightsDeleteConfirmed()
-        {
-            //var viewresult = ((ViewResult)controller.DeleteConfirmed(5001)).Model;
-
-            var details = flights.SingleOrDefault(f => f.FlightID == 5001);
-
-            //Assert
-            Assert.IsNotNull(details);
-        }
-
-        [TestMethod]
-        public void FlightsDeleteConfirmedValidRedirect()
-        {
-            RedirectToRouteResult details = controller.DeleteConfirmed(5001) as RedirectToRouteResult;
-
-            var list = details.RouteValues.ToArray();
-            //Assert
-            Assert.AreEqual("Index",list[0].Value );
-        }
+        
 
         [TestMethod]
         public void FlightsCreateLoad()
@@ -319,16 +247,16 @@ namespace AirlineReservationSystem.Tests.Controllers
             //Assert
             Assert.AreEqual("Edit", viewresult.ViewName);
         }
-        //[TestMethod]
-        //public void FlightsEditLoadNullID()
-        //{
-        //    //Arrange
-        //    //Act
-        //    HttpStatusCodeResult viewresult = controller.Edit(null) as HttpStatusCodeResult;
+        [TestMethod]
+        public void FlightsEditLoadNullID()
+        {
+            //Arrange
+            //Act
+            HttpStatusCodeResult viewresult = controller.Edit((int?)null) as HttpStatusCodeResult;
 
-        //    //Assert
-        //    Assert.AreEqual(400, viewresult.StatusCode);
-        //}
+            //Assert
+            Assert.AreEqual(400, viewresult.StatusCode);
+        }
         [TestMethod]
         public void FlightsEditHttpNotFouond()
         {
@@ -390,13 +318,88 @@ namespace AirlineReservationSystem.Tests.Controllers
         public void FlightEditPostViewBeg()
         {
             controller.ModelState.AddModelError("Description", "error");
-
-            //Act
             //Act
             SelectList viewresult = (controller.Edit(flights[0]) as ViewResult).ViewBag.FlightJetID;
 
             //Assert
             Assert.AreEqual(3001, viewresult.SelectedValue);
+        }
+
+        [TestMethod]
+        public void FlightsDeleteLoad()
+        {
+            //Arrange
+            //Act
+            ViewResult viewresult = controller.Delete(5000) as ViewResult;
+
+            //Assert
+            Assert.IsNotNull(viewresult);
+
+        }
+        [TestMethod]
+        public void FlightsDeleteLoadViewName()
+        {
+            //Arrange
+            //Act
+            ViewResult viewresult = controller.Delete(5001) as ViewResult;
+
+            //Assert
+            Assert.AreEqual("Delete", viewresult.ViewName);
+        }
+        [TestMethod]
+        public void FlightsDeleteLoadNullID()
+        {
+            //Arrange
+            //Act
+            HttpStatusCodeResult viewresult = controller.Delete(null) as HttpStatusCodeResult;
+
+            //Assert
+            Assert.AreEqual(400, viewresult.StatusCode);
+        }
+        [TestMethod]
+        public void FlightsDeleteHttpNotFouond()
+        {
+            //Arrange
+
+            //Act
+            HttpNotFoundResult viewresult = controller.Delete(1001) as HttpNotFoundResult;
+
+            //Assert
+            Assert.AreEqual(404, viewresult.StatusCode);
+
+        }
+        [TestMethod]
+        public void FlightsDeleteLoadList()
+        {
+            //Arrange
+
+            //Act
+            var viewresult = ((ViewResult)controller.Delete(5001)).Model;
+            var details = flights.SingleOrDefault(f => f.FlightID == 5001);
+
+            //Assert
+            Assert.AreEqual(details, viewresult);
+        }
+
+        [TestMethod]
+        public void FlightsDeleteConfirmed()
+        {
+            //var viewresult = ((ViewResult)controller.DeleteConfirmed(5001)).Model;
+
+            var details = flights.SingleOrDefault(f => f.FlightID == 5001);
+
+            //Assert
+            Assert.IsNotNull(details);
+        }
+
+        [TestMethod]
+        public void FlightsDeleteConfirmedValidRedirect()
+        {
+            RedirectToRouteResult details = controller.DeleteConfirmed(5001) as RedirectToRouteResult;
+
+            var list = details.RouteValues.ToArray();
+            //Assert
+            Assert.AreEqual("Index", list[0].Value);
         }
     }
 }
