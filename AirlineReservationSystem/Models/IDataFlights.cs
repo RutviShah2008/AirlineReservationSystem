@@ -12,6 +12,8 @@ namespace AirlineReservationSystem.Models
 
         public IQueryable<Flight> Flights { get { return db.Flights; } }
 
+        public IQueryable<Jet> Jets { get { return db.Jets; } }
+
         public void Delete(Flight flight)
         {
             db.Flights.Remove(flight);

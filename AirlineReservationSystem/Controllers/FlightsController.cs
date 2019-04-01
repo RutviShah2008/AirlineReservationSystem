@@ -54,7 +54,7 @@ namespace AirlineReservationSystem.Models
         public ActionResult Create()
         {
             ViewBag.Message = "Book Your Flights";
-            //ViewBag.FlightJetID = new SelectList(db.Jets, "JetID", "JetName");
+            ViewBag.FlightJetID = new SelectList(db.Jets, "JetID", "JetName");
             return View("Create");
         }
 
@@ -72,7 +72,7 @@ namespace AirlineReservationSystem.Models
                 return RedirectToAction("Index");
             }
 
-            //ViewBag.FlightJetID = new SelectList(db.Jets, "JetID", "JetName", flight.FlightJetID);
+            ViewBag.FlightJetID = new SelectList(db.Jets, "JetID", "JetName", flight.FlightJetID);
             return View("Create",flight);
         }
 
@@ -89,7 +89,7 @@ namespace AirlineReservationSystem.Models
             {
                 return HttpNotFound();
             }
-            //ViewBag.FlightJetID = new SelectList(db.Jets, "JetID", "JetName", flight.FlightJetID);
+            ViewBag.FlightJetID = new SelectList(db.Jets, "JetID", "JetName", flight.FlightJetID);
             return View("Edit",flight);
         }
 
@@ -106,7 +106,7 @@ namespace AirlineReservationSystem.Models
                 //db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            //ViewBag.FlightJetID = new SelectList(db.Jets, "JetID", "JetName", flight.FlightJetID);
+            ViewBag.FlightJetID = new SelectList(db.Jets, "JetID", "JetName", flight.FlightJetID);
             return View("Edit",flight);
         }
 

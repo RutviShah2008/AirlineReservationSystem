@@ -9,6 +9,7 @@ namespace AirlineReservationSystem.Models
     public interface IMockFlights
     {
         IQueryable<Flight> Flights { get; }
+        IQueryable<Jet> Jets { get; }
         Flight Save(Flight category);
         void Delete(Flight category);
         void Dispose();

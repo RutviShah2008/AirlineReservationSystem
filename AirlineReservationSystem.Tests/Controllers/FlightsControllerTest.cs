@@ -214,7 +214,7 @@ namespace AirlineReservationSystem.Tests.Controllers
 
         }
         [TestMethod]
-        public void FlightsCreateViewBag()
+        public void FlightsCreateViewBagMessag()
         {
             //Act
             var result = controller.Create() as ViewResult;
@@ -244,6 +244,17 @@ namespace AirlineReservationSystem.Tests.Controllers
         }
         [TestMethod]
         public void FlightsCreateActionResultNotNull()
+        {
+            //Arrange 
+            Flight flights = new Flight { FlightID = 1001, FlightDestination = "Fake", FlightSource = "Fake", FlightTime = "fake" };
+            //Act
+            var result = controller.Create(flights) as RedirectToRouteResult;
+
+            //Assert
+            Assert.IsNotNull(result);
+        }
+        [TestMethod]
+        public void FlightsCreate()
         {
             //Arrange 
             Flight flights = new Flight { FlightID = 1001, FlightDestination = "Fake", FlightSource = "Fake", FlightTime = "fake" };
