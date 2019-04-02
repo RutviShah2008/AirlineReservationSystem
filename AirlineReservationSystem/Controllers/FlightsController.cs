@@ -136,6 +136,7 @@ namespace AirlineReservationSystem.Models
             //db.Flights.Remove(flight);
             //db.SaveChanges();
             db.Delete(flight);
+            db.Save(flight);
             return RedirectToAction("Index");
         }
 
