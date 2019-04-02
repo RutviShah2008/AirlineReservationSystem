@@ -133,6 +133,7 @@ namespace AirlineReservationSystem.Models
             Flight flight = db.Flights.SingleOrDefault(f => f.FlightID == id);
             //db.Flights.Remove(flight);
             //db.SaveChanges();
+            db.Delete(flight);
             return RedirectToAction("Index");
         }
 
