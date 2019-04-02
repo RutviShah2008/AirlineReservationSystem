@@ -136,17 +136,16 @@ namespace AirlineReservationSystem.Models
             //db.Flights.Remove(flight);
             //db.SaveChanges();
             db.Delete(flight);
-            db.Save(flight);
             return RedirectToAction("Index");
         }
 
-        //protected override void Dispose(bool disposing)
-        //{
-        //    if (disposing)
-        //    {
-        //        db.Dispose();
-        //    }
-        //    base.Dispose(disposing);
-        //}
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
     }
 }
