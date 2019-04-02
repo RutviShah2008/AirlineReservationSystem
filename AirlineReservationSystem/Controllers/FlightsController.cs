@@ -69,6 +69,7 @@ namespace AirlineReservationSystem.Models
             {
                 //db.Flights.Add(flight);
                 //db.SaveChanges();
+                db.Save(flight);
                 return RedirectToAction("Index");
             }
 
