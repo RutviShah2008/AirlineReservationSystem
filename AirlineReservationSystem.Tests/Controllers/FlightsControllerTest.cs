@@ -402,6 +402,15 @@ namespace AirlineReservationSystem.Tests.Controllers
             Assert.AreEqual("Index", list[0].Value);
         }
 
+        [TestMethod]
+        public void FlightsDeleteConfirmedViewNotNull()
+        {
+            RedirectToRouteResult details = controller.DeleteConfirmed(5001) as RedirectToRouteResult;
+
+            var list = details.RouteValues.ToArray();
+            //Assert
+            Assert.IsNotNull(list[0].Value);
+        }
         
     }
 }

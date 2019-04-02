@@ -10,8 +10,8 @@ namespace AirlineReservationSystem.Models
     {
         IQueryable<Flight> Flights { get; }
         IQueryable<Jet> Jets { get; }
-        Flight Save(Flight category);
-        void Delete(Flight category);
+        Flight Save(Flight flight);
+        void Delete(Flight flight);
         void Dispose();
     }
 }
