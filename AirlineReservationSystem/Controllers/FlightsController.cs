@@ -104,6 +104,7 @@ namespace AirlineReservationSystem.Models
             {
                 //db.Entry(flight).State = EntityState.Modified;
                 //db.SaveChanges();
+                db.Save(flight);
                 return RedirectToAction("Index");
             }
             ViewBag.FlightJetID = new SelectList(db.Jets, "JetID", "JetName", flight.FlightJetID);
