@@ -39,13 +39,11 @@
 	<h2><i>AirlineReservation System Assignment2:Part2: Unit Testing</i></h2>
 	</hr>
 	<ul> <u><h3>Work Done</h3></u>
-		<li>Added Unit test </li>
-		<li></li>
-		<li></li>
-		<li></li>
+		<li>Implemented Moq</li>
+		<li>Added Unit test for Flight Controller(Plan Trip)</li>
+		<li> Generater 100% code coverage for the Application</li>
 	</ul>
 	<ul> <u><h3>Challenges</h3></u>
-		<li>Generating ClientId and Secret for Google Plus</li>
-		<li>Connecting to server</li>  		
+		<li>It's fun to test Appplication</li>		  		
 	</ul>
 </div>
