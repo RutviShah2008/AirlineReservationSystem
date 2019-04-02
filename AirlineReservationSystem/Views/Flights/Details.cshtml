@@ -54,6 +54,10 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.FlightID }) |
+    @if (Request.IsAuthenticated)
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.FlightID })
+    }
+    |
     @Html.ActionLink("Back to List", "Index")
 </p>
