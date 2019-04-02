@@ -7,12 +7,14 @@
 
 <h2>Flights</h2>
 
-@if (User.IsInRole("User"))
+@if (Request.IsAuthenticated)
 {
     <p>
         @Html.ActionLink("Book Now", "Create")
     </p>
 }
+
+
 <table class="table">
     <tr>
         <th>
@@ -35,37 +37,35 @@
 
     @foreach (var item in Model)
     {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Jet.JetName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FlightDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FlightSource)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FlightDestination)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FlightTime)
-        </td>
-        @if (Request.IsAuthenticated)
-        {
+        <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.Jet.JetName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightSource)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightDestination)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightTime)
+            </td>
+            @if (Request.IsAuthenticated)
+            {
+            <td>
+                          @Html.ActionLink("Edit", "Edit", new { id = item.FlightID })
 
-
-                @Html.ActionLink("Edit", "Edit", new { id = item.FlightID })
-
-                |
-                @Html.ActionLink("Details", "Details", new { id = item.FlightID }) |
+                    |
+                    @Html.ActionLink("Details", "Details", new { id = item.FlightID }) |
 
 
                 @Html.ActionLink("Delete", "Delete", new { id = item.FlightID })
 
             </td>
-        }
+            }
         </tr>
     }
 

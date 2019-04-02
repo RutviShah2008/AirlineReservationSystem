@@ -48,6 +48,18 @@ namespace AirlineReservationSystem.Tests.Controllers
             controller = new FlightsController(mock.Object);
         }
 
+        //Unit test for Constructor
+        [TestMethod]
+        public void FlightsMain()
+        {
+            FlightsController f1 = new FlightsController();
+
+            var flightdata = f1.GetType();
+
+            Assert.IsInstanceOfType(flightdata, typeof(Object));
+        }
+
+        //Unit test For Index Method
         [TestMethod]
         public void FlightsViewLoad()
         {
@@ -94,6 +106,9 @@ namespace AirlineReservationSystem.Tests.Controllers
             //Assert
             CollectionAssert.AreEqual(flights.ToList(), results);
         }
+
+
+        //Unit test For Details Method
         [TestMethod]
         public void FlightsDetailsLoad()
         {
@@ -152,7 +167,7 @@ namespace AirlineReservationSystem.Tests.Controllers
         }
 
         
-
+        //Unit test For Create Get Method
         [TestMethod]
         public void FlightsCreateLoad()
         {
@@ -226,8 +241,9 @@ namespace AirlineReservationSystem.Tests.Controllers
             Assert.AreEqual(3001, result.SelectedValue);
         }
 
+        //Unit test for Edit Get and Post Method
         [TestMethod]
-        public void FlightsEditeLoad()
+        public void FlightsEditLoad()
         {
             //Arrange
             //Act
@@ -267,7 +283,6 @@ namespace AirlineReservationSystem.Tests.Controllers
 
             //Assert
             Assert.AreEqual(404, viewresult.StatusCode);
-
         }
 
         [TestMethod]
@@ -301,7 +316,6 @@ namespace AirlineReservationSystem.Tests.Controllers
             Assert.AreEqual("Index", viewresult.RouteValues["action"]);
         }
 
-
         [TestMethod]
         public void FLightsEditPostInvalidModel()
         {
@@ -313,7 +327,6 @@ namespace AirlineReservationSystem.Tests.Controllers
             //Assert
             Assert.AreEqual("Edit", viewresult.ViewName);
         }
-
         [TestMethod]
         public void FlightEditPostViewBeg()
         {
@@ -325,6 +338,7 @@ namespace AirlineReservationSystem.Tests.Controllers
             Assert.AreEqual(3001, viewresult.SelectedValue);
         }
 
+        //Unit Test for Delete get and Post method
         [TestMethod]
         public void FlightsDeleteLoad()
         {
@@ -381,6 +395,7 @@ namespace AirlineReservationSystem.Tests.Controllers
             Assert.AreEqual(details, viewresult);
         }
 
+        //Unit test for DeleteConfirm method
         [TestMethod]
         public void FlightsDeleteConfirmed()
         {

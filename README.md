@@ -22,12 +22,27 @@
 	</ul>
 </div>
 <div>
-	<h2><i>AirlineReservation System Assignment2:Part1</i></h2>
+	<h2><i>AirlineReservation System Assignment2:Part1: Authentication and Authorization</i></h2>
 	</hr>
 	<ul> <u><h3>Work Done</h3></u>
 	<li> Added Login and Register Link to navbar</li>
 	<li> Added Authorozation and Authentication for the Index View - Anonymous users can view the list of data but cannot see the Create, Edit, or Delete links</li>
 	<li> Enabled Social Authentication Microsoft, Google, Twitter, Facebook</li>
+	</ul>
+	<ul> <u><h3>Challenges</h3></u>
+		<li>Generating ClientId and Secret for Google Plus</li>
+		<li>Connecting to server</li>  		
+	</ul>
+</div>
+
+<div>
+	<h2><i>AirlineReservation System Assignment2:Part2: Unit Testing</i></h2>
+	</hr>
+	<ul> <u><h3>Work Done</h3></u>
+		<li>Added Unit test </li>
+		<li></li>
+		<li></li>
+		<li></li>
 	</ul>
 	<ul> <u><h3>Challenges</h3></u>
 		<li>Generating ClientId and Secret for Google Plus</li>
